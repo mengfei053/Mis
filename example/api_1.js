@@ -452,6 +452,7 @@
  * @apiSuccess {Object} params   运行参数
  * @apiSuccess {Number} status   审批状态
  * @apiSuccess {Number} duration   持续时间
+ * @apiSuccess {String} viewLink   下载链接
  * @apiSuccess {String} downloadLink   下载链接
  * 
  *   @apiSuccessExample {json} Success-Response:
@@ -488,6 +489,7 @@
  *                
  *              ],
  *              downloadLink:'',
+ *              viewLink:'',
  *              status:''//成功1，失败0，运行中2,
  *              duration：''//毫秒
  *          },

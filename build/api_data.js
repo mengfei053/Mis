@@ -364,6 +364,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "viewLink",
+            "description": "<p>下载链接</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "downloadLink",
             "description": "<p>下载链接</p>"
           }
@@ -372,7 +379,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"total\": 20,\n  \"pageNumber\": 1,\n   \"list\":[\n     {\n         id:\"\",\n         executeTime:'',\n         optUser:{\n             realName:'',\n             umname:'',\n         },\n         params:[\n           {\n               \"sheetId\":'',\n               \"sheetName\":'',\n               \"params\":[//json字符串\n                   {\n             name:'',//参数名\n             type:'',//参数类型\n             value:'',//参数值\n                   },\n                   {\n             name:'',//参数名\n             type:'',//参数类型\n             value:'',//参数值\n                   },\n               ],\n           }\n           \n           \n         ],\n         downloadLink:'',\n         status:''//成功1，失败0，运行中2,\n         duration：''//毫秒\n     },\n\n   ]\n}",
+          "content": "HTTP/1.1 200 OK\n{\n  \"total\": 20,\n  \"pageNumber\": 1,\n   \"list\":[\n     {\n         id:\"\",\n         executeTime:'',\n         optUser:{\n             realName:'',\n             umname:'',\n         },\n         params:[\n           {\n               \"sheetId\":'',\n               \"sheetName\":'',\n               \"params\":[//json字符串\n                   {\n             name:'',//参数名\n             type:'',//参数类型\n             value:'',//参数值\n                   },\n                   {\n             name:'',//参数名\n             type:'',//参数类型\n             value:'',//参数值\n                   },\n               ],\n           }\n           \n           \n         ],\n         downloadLink:'',\n         viewLink:'',\n         status:''//成功1，失败0，运行中2,\n         duration：''//毫秒\n     },\n\n   ]\n}",
           "type": "json"
         }
       ]
