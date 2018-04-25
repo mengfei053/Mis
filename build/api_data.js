@@ -1,0 +1,931 @@
+define({ "api": [
+  {
+    "type": "get",
+    "url": "/user/info",
+    "title": "获取用户信息",
+    "group": "User",
+    "description": "<p>根据cookie或者session信息返回用户信息，包括权限信息</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_2.js",
+    "groupTitle": "User",
+    "name": "GetUserInfo",
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"UserNotFound\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/user/list",
+    "title": "获取用户列表",
+    "group": "User",
+    "description": "<p>根据cookie或者session信息返回用户信息，包括权限信息</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_2.js",
+    "groupTitle": "User",
+    "name": "GetUserList",
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"UserNotFound\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "post",
+    "url": "/user/login",
+    "title": "登录",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>[必填]域账号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>[必填]开机密码</p>"
+          }
+        ]
+      }
+    },
+    "description": "<p>返回用户基本信息，包括权限信息，设置cooike或者session</p>",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     \n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_2.js",
+    "groupTitle": "User",
+    "name": "PostUserLogin",
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": \"UserNotFound\"\n}",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "/task/demandList",
+    "title": "需求列表",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>【选填】模糊查询</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n[\n  {\n     demandName:'',\n     demandNumber:'',\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "GetTaskDemandlist"
+  },
+  {
+    "type": "get",
+    "url": "/task/dependencies",
+    "title": "依赖列表",
+    "group": "task",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n\n{\n   \"total\": 20,\n   \"length\": 50,\n   \"pageNumber\": 1,\n   \"list\": [\n     {\n       \"id\":'',\n       \"param\":'',\n     },\n     {\n       \"id\":'',\n       \"param\":'',\n     }\n  ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "GetTaskDependencies"
+  },
+  {
+    "type": "post",
+    "url": "/task/cancleSub",
+    "title": "取消订阅",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "umname",
+            "description": "<p>【必填】um账号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】订阅任务id</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskCanclesub"
+  },
+  {
+    "type": "post",
+    "url": "/task/deleteSheet",
+    "title": "删除sheet",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】taskId</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sheetId",
+            "description": "<p>【必填】sheetId</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskDeletesheet"
+  },
+  {
+    "type": "post",
+    "url": "/task/execute",
+    "title": "执行任务",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】任务id,</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "params",
+            "description": "<p>【必填】任务id,</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"taskId\": \"id\",//有任务id\n   \n   \"dataResultInfo\" : [\n     {\n          \"sheetId\":\"\",\n           \"selectableParams\":[\n               {\n               \"paramName\":\"\"\n               \"paramValue\":'',\n           \n               },\n               {\n               \"paramName\":\"\"\n               \"paramValue\":'',\n           \n               }\n           ]\n           \"uploadFile\":fileBlob,\n     },\n\n   ],",
+          "type": "Form-data"
+        }
+      ]
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Content-Type",
+            "description": "<p>multipart/form-data</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskExecute"
+  },
+  {
+    "type": "post",
+    "url": "/task/executeLogs",
+    "title": "运行记录",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】任务id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pageSize",
+            "defaultValue": "10",
+            "description": "<p>【选填】返回条目数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pageNumber",
+            "defaultValue": "1",
+            "description": "<p>【选填】当前页面</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "total",
+            "description": "<p>总条目数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "pageNumber",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "list",
+            "description": "<p>运行记录列表</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "executeTime",
+            "description": "<p>运行时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "operatePerson",
+            "description": "<p>订阅人信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "params",
+            "description": "<p>运行参数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>审批状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "duration",
+            "description": "<p>持续时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "downloadLink",
+            "description": "<p>下载链接</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"total\": 20,\n  \"pageNumber\": 1,\n   \"list\":[\n     {\n         id:\"\",\n         executeTime:'',\n         optUser:{\n             realName:'',\n             umname:'',\n         },\n         params:[\n           {\n               \"sheetId\":'',\n               \"sheetName\":'',\n               \"params\":[//json字符串\n                   {\n             name:'',//参数名\n             type:'',//参数类型\n             value:'',//参数值\n                   },\n                   {\n             name:'',//参数名\n             type:'',//参数类型\n             value:'',//参数值\n                   },\n               ],\n           }\n           \n           \n         ],\n         downloadLink:'',\n         status:''//成功1，失败0，运行中2,\n         duration：''//毫秒\n     },\n\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskExecutelogs"
+  },
+  {
+    "type": "post",
+    "url": "/task/forbidden",
+    "title": "任务归档",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】任务id</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskForbidden"
+  },
+  {
+    "type": "post",
+    "url": "/task/info",
+    "title": "任务信息",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】任务id,</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "baseInfo",
+            "description": "<p>基础信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "dataResultInfo",
+            "description": "<p>返回条数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "dispatchInfo",
+            "description": "<p>第几页</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n   baseInfo:{\n       owner:'',\n       createTime:'',\n       dueTime:'',\n       developer:'',\n       dataSource:'',\n       desc:'',\n   },\n   \"dataResultInfo\" : [\n       {\n           \"sheetId\":\"\",\n           \"sheetName\":\"\",\n           \"columnName\":\"\",\n           \"selectableParams\":[\n               {\n                   \"paramDesc\":\"\",\n                   \"paramName\":\"\",\n                   \"paramType\":\"\",\n                   \"dptDefault\":\"\",\n                   \"isRequired\":false,\n               },\n               {\n                   \"paramDesc\":\"\",\n                   \"paramName\":\"\",\n                   \"paramType\":\"\",\n                   \"dptDefault\":\"\",\n                   \"isRequired\":false,\n               }\n            ],\n           \"sql\":\"\",\n           \"handUploadData\":{\n               \"tableName\":\"\",\n               \"fields\":[\n                   {\n                    \"fieldName\":\"\",\n                     \"fieldType\":\"\",\n                     \"fieldDesc\":\"\",\n                   }\n               ]\n              \n           }\n\n       }\n\n   ],\n   dispatchInfo:{\n       \"zhexp\":\"每日18时10分\",\n       \"cron\":\"0 0 5 ? * MON\",\n       \"status\":\"\",\n       \"dptTaskId\":\"\"\n     \n   },\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskInfo"
+  },
+  {
+    "type": "post",
+    "url": "/task/modify",
+    "title": "增加或更新任务",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskName",
+            "description": "<p>【必填】任务名称</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "owner",
+            "description": "<p>【必填】任务所有人（需求方）</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "developer",
+            "description": "<p>【必填】开发者</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "dueDate",
+            "description": "<p>【必填】到期时间</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataSource",
+            "description": "<p>【必填】选择数据源</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "demandNumber",
+            "description": "<p>【必填】关联需求号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "isRWExecute",
+            "defaultValue": "0",
+            "description": "<p>【必填】是否允许立即执行</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "dataResultInfo",
+            "description": "<p>【选填】数据结果页参数集合</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sheetName",
+            "description": "<p>【选填】页面名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "columnName",
+            "description": "<p>【选填】列名,逗号分隔，</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "selectableParams",
+            "description": "<p>【选填】可选参数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramName",
+            "description": "<p>【选填】参数名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "isRequired",
+            "description": "<p>【选填】可选参数是否必选</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "paramType",
+            "description": "<p>【选填】可选参数类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dptDefault",
+            "description": "<p>【选填】可选参数调度默认值</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sql",
+            "description": "<p>【必填】sql</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "handUploadData",
+            "description": "<p>【选填】手工上传数据</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tableName",
+            "description": "<p>【选填】</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Array",
+            "optional": false,
+            "field": "fields",
+            "description": "<p>【选填】手工上传表字段描述</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fieldName",
+            "description": "<p>【选填】字段名</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fieldType",
+            "description": "<p>【选填】字段类型</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fieldDesc",
+            "description": "<p>【选填】字段描述</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "dptFrequency",
+            "description": "<p>【必填】调度频率是否必填，根据是否上传手工数据决定</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dependencies",
+            "description": "<p>【选填】依赖项</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"id\": \"id\",//有id则修改，无id则添加\n   \"taskName\" : \"\",\n   \"owner\" : \"\",\n   \"developer\" : \"\",\n   \"dueDate\" : Number,\n   \"dataSource\" : \"sparkSQL\",\n   \"demandNumber\" : \"\",\n   \"isRWExecute\" : 0,\n   \"desc\":\"\",\n   \"dataResultInfo\" : [\n       {\n           \"sheetName\":\"\",\n           \"columnName\":\"\",\n           \"selectableParams\":[\n               {\n                   \"paramDesc\":\"\",\n                   \"paramName\":\"\",\n                   \"paramType\":\"\",\n                   \"dptDefault\":\"\",\n                   \"isRequired\":false,\n               },\n               {\n                    \"paramDesc\":\"\",\n                   \"paramName\":\"\",\n                   \"paramType\":\"\",\n                   \"dptDefault\":\"\",\n                   \"isRequired\":false,\n               }\n            ],\n           \"sql\":\"\",\n           \"handUploadData\":{\n               \"tableName\":\"\",\n               \"fields\":[\n                   {\n                    \"fieldName\":\"\",\n                     \"fieldType\":\"\",\n                     \"fieldDesc\":\"\",\n                   }\n               ]\n              \n           }\n           \n\n       }\n\n   ],\n   \"dptFrequency\" : { \n       \"zhexp\":\"每日18时10分\",\n        \"cron\":\"0 0 5 ? * MON\"\n   },\n   \"dependencies\" : \"\",\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskModify"
+  },
+  {
+    "type": "post",
+    "url": "/task/querylist",
+    "title": "查询任务列表",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "subum",
+            "description": "<p>【选填】订阅人UM</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pageSize",
+            "defaultValue": "10",
+            "description": "<p>【选填】返回条目数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pageNumber",
+            "defaultValue": "1",
+            "description": "<p>【选填】当前页面</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "search",
+            "description": "<p>【选填】搜索内容</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "total",
+            "description": "<p>总条目数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "length",
+            "description": "<p>返回条数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "pageNumber",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "list",
+            "description": "<p>返回列表</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>任务id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "name",
+            "description": "<p>任务名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "desc",
+            "description": "<p>任务名称</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>状态</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "owner",
+            "description": "<p>所有人信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "developer",
+            "description": "<p>开发者信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "dptFrequency",
+            "description": "<p>调度频率</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"total\": 20,\n  \"pageNumber\": 1,\n   \"list\":[\n     {\n         id:\"\",\n         taskName:'',\n         desc:'',\n         status:'',\n         owner:{\n             realName:'',\n             umname:'',\n         },\n         developer:{\n              realName:'',\n             umname:'',\n         },\n         \"dataResultInfo\" : [\n           {\n       \n           \"sheetId\":\"\",\n           \"SheetName\":\"\",\n           \"columnName\":\"\",\n           \"selectableParams\":[\n               {\n                   \"paramDesc\":\"\",\n                   \"paramName\":\"\",\n                   \"paramType\":\"\",\n                   \"dptDefault\":\"\",\n                   \"isRequired\":false,\n               },\n               {\n                    \"paramDesc\":\"\",\n                   \"paramName\":\"\",\n                   \"paramType\":\"\",\n                   \"dptDefault\":\"\",\n                   \"isRequired\":false,\n               }\n            ],\n           \"sql\":\"\",\n           \"handUploadData\":{\n               \"tableName\":\"\",\n               \"fields\":[\n                   {\n                    \"fieldName\":\"\",\n                     \"fieldType\":\"\",\n                     \"fieldDesc\":\"\",\n                   }\n               ]\n              \n           }      \n         }\n      ],\n\n       \n     }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskQuerylist"
+  },
+  {
+    "type": "post",
+    "url": "/task/subscribe",
+    "title": "订阅",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "um",
+            "description": "<p>【必填】um账号</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】订阅任务id</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "optum",
+            "description": "<p>【必填】操作人</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskSubscribe"
+  },
+  {
+    "type": "post",
+    "url": "/task/subscribePersonList",
+    "title": "订阅人列表",
+    "group": "task",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "taskId",
+            "description": "<p>【必填】taskId</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pageSize",
+            "defaultValue": "10",
+            "description": "<p>【选填】返回条目数</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "pageNumber",
+            "defaultValue": "1",
+            "description": "<p>【选填】当前页面</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "total",
+            "description": "<p>总条目数</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "pageNumber",
+            "description": "<p>第几页</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Array",
+            "optional": false,
+            "field": "list",
+            "description": "<p>订阅人列表</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "subscribeTime",
+            "description": "<p>创建时间</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "subscribePerson",
+            "description": "<p>订阅人信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "approver",
+            "description": "<p>审批人信息</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "status",
+            "description": "<p>审批状态</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"total\": 20,\n  \"pageNumber\": 1,\n   \"list\":[\n     {\n         id:\"\",\n         subDate:'',\n         subUser:{\n             realName:'',\n             umname:'',\n         },\n         approver:{\n             realName:'',\n             umname:'',\n         },\n         status:'',\n     },\n     {\n         id:\"\",\n         subscribeTime:'',\n          subscribePerson:{\n             name:'',\n             um:'',\n         },\n         approver:{\n             name:'',\n             um:'',\n         },\n         status:'',\n     }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "example/api_1.js",
+    "groupTitle": "task",
+    "name": "PostTaskSubscribepersonlist"
+  }
+] });
